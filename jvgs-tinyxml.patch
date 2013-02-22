@@ -1,0 +1,287 @@
+diff -up jvgs-0.5-src/src/CMakeLists.txt.orig jvgs-0.5-src/src/CMakeLists.txt
+--- jvgs-0.5-src/src/CMakeLists.txt.orig	2013-02-22 15:40:28.513614654 -0300
++++ jvgs-0.5-src/src/CMakeLists.txt	2013-02-22 15:40:32.791614818 -0300
+@@ -12,7 +12,6 @@ ADD_SUBDIRECTORY( input )
+ ADD_SUBDIRECTORY( core )
+ ADD_SUBDIRECTORY( game )
+ ADD_SUBDIRECTORY( math )
+-ADD_SUBDIRECTORY( tinyxml )
+ ADD_SUBDIRECTORY( video )
+ ADD_SUBDIRECTORY( audio )
+ ADD_SUBDIRECTORY( sketch )
+diff -up jvgs-0.5-src/src/core/PropertyMap.cpp.orig jvgs-0.5-src/src/core/PropertyMap.cpp
+--- jvgs-0.5-src/src/core/PropertyMap.cpp.orig	2013-02-22 15:47:43.945631329 -0300
++++ jvgs-0.5-src/src/core/PropertyMap.cpp	2013-02-22 15:47:52.663631662 -0300
+@@ -1,7 +1,7 @@
+ #include "PropertyMap.h"
+ #include "LogManager.h"
+ 
+-#include "../tinyxml/tinyxml.h"
++#include "tinyxml.h"
+ using namespace std;
+ 
+ namespace jvgs
+diff -up jvgs-0.5-src/src/core/XMLLoadable.cpp.orig jvgs-0.5-src/src/core/XMLLoadable.cpp
+--- jvgs-0.5-src/src/core/XMLLoadable.cpp.orig	2013-02-22 15:48:02.193632027 -0300
++++ jvgs-0.5-src/src/core/XMLLoadable.cpp	2013-02-22 15:48:07.767632241 -0300
+@@ -1,7 +1,7 @@
+ #include "XMLLoadable.h"
+ #include "LogManager.h"
+ 
+-#include "../tinyxml/tinyxml.h"
++#include "tinyxml.h"
+ 
+ using namespace std;
+ 
+diff -up jvgs-0.5-src/src/game/AbstractCamera.cpp.orig jvgs-0.5-src/src/game/AbstractCamera.cpp
+--- jvgs-0.5-src/src/game/AbstractCamera.cpp.orig	2013-02-22 15:50:17.617637213 -0300
++++ jvgs-0.5-src/src/game/AbstractCamera.cpp	2013-02-22 15:50:24.079637461 -0300
+@@ -5,7 +5,7 @@ using namespace jvgs::video;
+ 
+ using namespace jvgs::math;
+ 
+-#include "../tinyxml/tinyxml.h"
++#include "tinyxml.h"
+ 
+ namespace jvgs
+ {
+diff -up jvgs-0.5-src/src/game/Animation.cpp.orig jvgs-0.5-src/src/game/Animation.cpp
+--- jvgs-0.5-src/src/game/Animation.cpp.orig	2013-02-22 15:51:23.169639723 -0300
++++ jvgs-0.5-src/src/game/Animation.cpp	2013-02-22 15:51:28.415639924 -0300
+@@ -7,7 +7,7 @@ using namespace jvgs::sketch;
+ #include "../core/LogManager.h"
+ using namespace jvgs::core;
+ 
+-#include "../tinyxml/tinyxml.h"
++#include "tinyxml.h"
+ 
+ using namespace std;
+ 
+diff -up jvgs-0.5-src/src/game/BullController.cpp.orig jvgs-0.5-src/src/game/BullController.cpp
+--- jvgs-0.5-src/src/game/BullController.cpp.orig	2013-02-22 15:50:59.425638814 -0300
++++ jvgs-0.5-src/src/game/BullController.cpp	2013-02-22 15:51:05.711639055 -0300
+@@ -8,7 +8,7 @@ using namespace jvgs::core;
+ #include "../math/Vector2D.h"
+ using namespace jvgs::math;
+ 
+-#include "../tinyxml/tinyxml.h"
++#include "tinyxml.h"
+ 
+ using namespace std;
+ 
+diff -up jvgs-0.5-src/src/game/CollisionResponsePositioner.cpp.orig jvgs-0.5-src/src/game/CollisionResponsePositioner.cpp
+--- jvgs-0.5-src/src/game/CollisionResponsePositioner.cpp.orig	2013-02-22 15:49:01.769634309 -0300
++++ jvgs-0.5-src/src/game/CollisionResponsePositioner.cpp	2013-02-22 15:49:08.463634565 -0300
+@@ -15,7 +15,7 @@ using namespace jvgs::sketch;
+ #include "../math/QuadTree.h"
+ using namespace jvgs::math;
+ 
+-#include "../tinyxml/tinyxml.h"
++#include "tinyxml.h"
+ 
+ #include <iostream>
+ using namespace std;
+diff -up jvgs-0.5-src/src/game/DefaultInputController.cpp.orig jvgs-0.5-src/src/game/DefaultInputController.cpp
+--- jvgs-0.5-src/src/game/DefaultInputController.cpp.orig	2013-02-22 15:50:03.353636667 -0300
++++ jvgs-0.5-src/src/game/DefaultInputController.cpp	2013-02-22 15:50:11.295636971 -0300
+@@ -7,7 +7,7 @@
+ #include "../input/InputManager.h"
+ using namespace jvgs::input;
+ 
+-#include "../tinyxml/tinyxml.h"
++#include "tinyxml.h"
+ 
+ using namespace jvgs::math;
+ 
+diff -up jvgs-0.5-src/src/game/Entity.cpp.orig jvgs-0.5-src/src/game/Entity.cpp
+--- jvgs-0.5-src/src/game/Entity.cpp.orig	2013-02-22 15:49:50.033636157 -0300
++++ jvgs-0.5-src/src/game/Entity.cpp	2013-02-22 15:49:57.183636431 -0300
+@@ -27,7 +27,7 @@ using namespace jvgs::video;
+ #include "../bind/ScriptManager.h"
+ using namespace jvgs::bind;
+ 
+-#include "../tinyxml/tinyxml.h"
++#include "tinyxml.h"
+ 
+ using namespace std;
+ using namespace jvgs::math;
+diff -up jvgs-0.5-src/src/game/FlyStraightController.cpp.orig jvgs-0.5-src/src/game/FlyStraightController.cpp
+--- jvgs-0.5-src/src/game/FlyStraightController.cpp.orig	2013-02-22 15:48:49.465633838 -0300
++++ jvgs-0.5-src/src/game/FlyStraightController.cpp	2013-02-22 15:48:55.535634070 -0300
+@@ -5,7 +5,7 @@
+ #include "../math/Vector2D.h"
+ using namespace jvgs::math;
+ 
+-#include "../tinyxml/tinyxml.h"
++#include "tinyxml.h"
+ 
+ namespace jvgs
+ {
+diff -up jvgs-0.5-src/src/game/FollowCamera.cpp.orig jvgs-0.5-src/src/game/FollowCamera.cpp
+--- jvgs-0.5-src/src/game/FollowCamera.cpp.orig	2013-02-22 15:48:14.569632501 -0300
++++ jvgs-0.5-src/src/game/FollowCamera.cpp	2013-02-22 15:48:24.367632876 -0300
+@@ -12,7 +12,7 @@ using namespace jvgs::video;
+ 
+ using namespace jvgs::math;
+ 
+-#include "../tinyxml/tinyxml.h"
++#include "tinyxml.h"
+ 
+ namespace jvgs
+ {
+diff -up jvgs-0.5-src/src/game/InputController.cpp.orig jvgs-0.5-src/src/game/InputController.cpp
+--- jvgs-0.5-src/src/game/InputController.cpp.orig	2013-02-22 15:48:37.312633372 -0300
++++ jvgs-0.5-src/src/game/InputController.cpp	2013-02-22 15:48:43.031633591 -0300
+@@ -5,7 +5,7 @@
+ #include "../input/InputManager.h"
+ using namespace jvgs::input;
+ 
+-#include "../tinyxml/tinyxml.h"
++#include "tinyxml.h"
+ 
+ using namespace jvgs::math;
+ 
+diff -up jvgs-0.5-src/src/game/Level.cpp.orig jvgs-0.5-src/src/game/Level.cpp
+--- jvgs-0.5-src/src/game/Level.cpp.orig	2013-02-22 15:51:47.993640674 -0300
++++ jvgs-0.5-src/src/game/Level.cpp	2013-02-22 15:51:55.175640949 -0300
+@@ -14,7 +14,7 @@ using namespace jvgs::video;
+ #include "../audio/AudioManager.h"
+ using namespace jvgs::audio;
+ 
+-#include "../tinyxml/tinyxml.h"
++#include "tinyxml.h"
+ 
+ using namespace jvgs::sketch;
+ using namespace jvgs::math;
+diff -up jvgs-0.5-src/src/game/PatrollingController.cpp.orig jvgs-0.5-src/src/game/PatrollingController.cpp
+--- jvgs-0.5-src/src/game/PatrollingController.cpp.orig	2013-02-22 15:50:31.777637755 -0300
++++ jvgs-0.5-src/src/game/PatrollingController.cpp	2013-02-22 15:50:39.327638045 -0300
+@@ -5,7 +5,7 @@
+ #include "../math/MathManager.h"
+ using namespace jvgs::math;
+ 
+-#include "../tinyxml/tinyxml.h"
++#include "tinyxml.h"
+ 
+ namespace jvgs
+ {
+diff -up jvgs-0.5-src/src/game/Positioner.cpp.orig jvgs-0.5-src/src/game/Positioner.cpp
+--- jvgs-0.5-src/src/game/Positioner.cpp.orig	2013-02-22 15:49:38.640635721 -0300
++++ jvgs-0.5-src/src/game/Positioner.cpp	2013-02-22 15:49:43.991635926 -0300
+@@ -1,7 +1,7 @@
+ #include "Positioner.h"
+ #include "Entity.h"
+ 
+-#include "../tinyxml/tinyxml.h"
++#include "tinyxml.h"
+ 
+ using namespace jvgs::math;
+ 
+diff -up jvgs-0.5-src/src/game/SillyController.cpp.orig jvgs-0.5-src/src/game/SillyController.cpp
+--- jvgs-0.5-src/src/game/SillyController.cpp.orig	2013-02-22 15:51:12.265639306 -0300
++++ jvgs-0.5-src/src/game/SillyController.cpp	2013-02-22 15:51:17.671639513 -0300
+@@ -1,7 +1,7 @@
+ #include "SillyController.h"
+ #include "Entity.h"
+ 
+-#include "../tinyxml/tinyxml.h"
++#include "tinyxml.h"
+ 
+ using namespace jvgs::math;
+ 
+diff -up jvgs-0.5-src/src/game/SimpleBirdController.cpp.orig jvgs-0.5-src/src/game/SimpleBirdController.cpp
+--- jvgs-0.5-src/src/game/SimpleBirdController.cpp.orig	2013-02-22 15:50:45.601638285 -0300
++++ jvgs-0.5-src/src/game/SimpleBirdController.cpp	2013-02-22 15:50:52.263638540 -0300
+@@ -1,7 +1,7 @@
+ #include "SimpleBirdController.h"
+ #include "Entity.h"
+ 
+-#include "../tinyxml/tinyxml.h"
++#include "tinyxml.h"
+ 
+ using namespace std;
+ using namespace jvgs::math;
+diff -up jvgs-0.5-src/src/game/SimpleCamera.cpp.orig jvgs-0.5-src/src/game/SimpleCamera.cpp
+--- jvgs-0.5-src/src/game/SimpleCamera.cpp.orig	2013-02-22 15:51:35.569640198 -0300
++++ jvgs-0.5-src/src/game/SimpleCamera.cpp	2013-02-22 15:51:41.911640441 -0300
+@@ -2,7 +2,7 @@
+ 
+ using namespace jvgs::math;
+ 
+-#include "../tinyxml/tinyxml.h"
++#include "tinyxml.h"
+ 
+ namespace jvgs
+ {
+diff -up jvgs-0.5-src/src/game/Sprite.cpp.orig jvgs-0.5-src/src/game/Sprite.cpp
+--- jvgs-0.5-src/src/game/Sprite.cpp.orig	2013-02-22 15:49:14.673634803 -0300
++++ jvgs-0.5-src/src/game/Sprite.cpp	2013-02-22 15:49:31.871635461 -0300
+@@ -1,7 +1,7 @@
+ #include "Sprite.h"
+ #include "Animation.h"
+ 
+-#include "../tinyxml/tinyxml.h"
++#include "tinyxml.h"
+ 
+ using namespace std;
+ 
+diff -up jvgs-0.5-src/src/math/Vector2D.cpp.orig jvgs-0.5-src/src/math/Vector2D.cpp
+--- jvgs-0.5-src/src/math/Vector2D.cpp.orig	2013-02-22 15:52:01.249641182 -0300
++++ jvgs-0.5-src/src/math/Vector2D.cpp	2013-02-22 15:52:06.503641383 -0300
+@@ -2,7 +2,7 @@
+ #include <cmath>
+ #include "MathManager.h"
+ 
+-#include "../tinyxml/tinyxml.h"
++#include "tinyxml.h"
+ 
+ namespace jvgs
+ {
+diff -up jvgs-0.5-src/src/sketch/GroupParser.cpp.orig jvgs-0.5-src/src/sketch/GroupParser.cpp
+--- jvgs-0.5-src/src/sketch/GroupParser.cpp.orig	2013-02-22 15:46:21.617628176 -0300
++++ jvgs-0.5-src/src/sketch/GroupParser.cpp	2013-02-22 15:46:30.111628501 -0300
+@@ -3,7 +3,7 @@
+ #include "Group.h"
+ #include "SketchElement.h"
+ 
+-#include "../tinyxml/tinyxml.h"
++#include "tinyxml.h"
+ 
+ #include "../core/LogManager.h"
+ using namespace jvgs::core;
+diff -up jvgs-0.5-src/src/sketch/Parser.cpp.orig jvgs-0.5-src/src/sketch/Parser.cpp
+--- jvgs-0.5-src/src/sketch/Parser.cpp.orig	2013-02-22 15:47:22.169630495 -0300
++++ jvgs-0.5-src/src/sketch/Parser.cpp	2013-02-22 15:47:33.615630933 -0300
+@@ -13,7 +13,7 @@ using namespace jvgs::core;
+ #include "../math/Vector2D.h"
+ using namespace jvgs::math;
+ 
+-#include "../tinyxml/tinyxml.h"
++#include "tinyxml.h"
+ 
+ namespace jvgs
+ {
+diff -up jvgs-0.5-src/src/sketch/PathParser.cpp.orig jvgs-0.5-src/src/sketch/PathParser.cpp
+--- jvgs-0.5-src/src/sketch/PathParser.cpp.orig	2013-02-22 15:46:45.088629075 -0300
++++ jvgs-0.5-src/src/sketch/PathParser.cpp	2013-02-22 15:46:53.511629397 -0300
+@@ -3,7 +3,7 @@
+ #include "Path.h"
+ #include "PathDataParser.h"
+ 
+-#include "../tinyxml/tinyxml.h"
++#include "tinyxml.h"
+ 
+ #include "../core/LogManager.h"
+ using namespace jvgs::core;
+diff -up jvgs-0.5-src/src/sketch/SketchElementParser.cpp.orig jvgs-0.5-src/src/sketch/SketchElementParser.cpp
+--- jvgs-0.5-src/src/sketch/SketchElementParser.cpp.orig	2013-02-22 15:47:01.641629709 -0300
++++ jvgs-0.5-src/src/sketch/SketchElementParser.cpp	2013-02-22 15:47:09.591630013 -0300
+@@ -3,7 +3,7 @@
+ #include "SketchElement.h"
+ #include "Parser.h"
+ 
+-#include "../tinyxml/tinyxml.h"
++#include "tinyxml.h"
+ 
+ #include "../core/LogManager.h"
+ using namespace jvgs::core;
