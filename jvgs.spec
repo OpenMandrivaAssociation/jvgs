@@ -6,7 +6,7 @@ Version:	0.5
 Release:	1%{?dist}
 Summary:	Minimalistic platform game loosely based on xkcd webcomic
 License:	WTFPL
-Group:		Amusements/Games
+Group:		Games/Arcade
 URL:		http://jvgs.sourceforge.net/
 Source0:	http://downloads.sourceforge.net/%{name}/%{name}-%{version}-src.tar.gz
 
@@ -37,7 +37,7 @@ along the broken stream of thoughts that's left.
 %package	data
 Summary:	The %{name} resource data files
 License:	CC-BY-SA
-Group:		Amusements/Games
+Group:		Games/Arcade
 BuildArch:	noarch
 
 %description	data
