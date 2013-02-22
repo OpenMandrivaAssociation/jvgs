@@ -51,26 +51,41 @@ The %{name} resource data files.
 rm -fr src/tinyxml
 
 %build
-%cmake .
-make %{?_smp_mflags}
+CFLAGS="%{optflags}"
+CXXFLAGS="%{optflags}"
+FFLAGS="%{optflags}"
+LDFLAGS="%{ldflags}"
+%{_bindir}/cmake \
+	-DCMAKE_VERBOSE_MAKEFILE=ON \
+	-DCMAKE_INSTALL_PREFIX:PATH=%{_prefix} \
+	-DINCLUDE_INSTALL_DIR:PATH=%{_includedir} \
+	-DLIB_INSTALL_DIR:PATH=%{_libdir} \
+	-DSYSCONF_INSTALL_DIR:PATH=%{_sysconfdir} \
+	-DSHARE_INSTALL_PREFIX:PATH=%{_datadir} \
+%if "%{_lib}" == "lib64" 
+	-DLIB_SUFFIX=64 \
+%endif 
+	-DBUILD_SHARED_LIBS:BOOL=ON \
+	.
+%make
 
 %install
-mkdir -p %{buildroot}{%{_datadir}/%{name}/resources,%{_bindir}}
+mkdir -p %{buildroot}{%{_gamesdatadir}/%{name}/resources,%{_bindir}}
 
-install -D -p -m644 ./main.lua %{buildroot}%{_datadir}/%{name}/main.lua
-install -D -p -m755 ./src/%{name} %{buildroot}%{_datadir}/%{name}/%{name}
+install -D -p -m644 ./main.lua %{buildroot}%{_gamesdatadir}/%{name}/main.lua
+install -D -p -m755 ./src/%{name} %{buildroot}%{_gamesdatadir}/%{name}/%{name}
 
 install -D -p -m644 %{SOURCE2} %{buildroot}%{_datadir}/pixmaps/%{name}.png
 install -D -p -m644 %{SOURCE1} %{buildroot}%{_datadir}/applications/%{name}.desktop
 desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 pushd resources
-    tar cf - * | (cd %{buildroot}%{_datadir}/%{name}/resources; tar xfp -)
+    tar cf - * | (cd %{buildroot}%{_gamesdatadir}/%{name}/resources; tar xfp -)
 popd
 
 echo "#!/bin/sh
 
-cd %{_datadir}/jvgs
+cd %{_gamesdatadir}/jvgs
 ./%{name} \"\$@\"" > %{buildroot}%{_bindir}/%{name}
 chmod +x %{buildroot}%{_bindir}/%{name}
 
@@ -80,12 +95,12 @@ chmod +x %{buildroot}%{_bindir}/%{name}
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}*.desktop
 %{_datadir}/pixmaps/%{name}.png
-%dir %{_datadir}/%{name}
-%{_datadir}/%{name}/%{name}
-%{_datadir}/%{name}/main.lua
+%dir %{_gamesdatadir}/%{name}
+%{_gamesdatadir}/%{name}/%{name}
+%{_gamesdatadir}/%{name}/main.lua
 
 %files		data
-%{_datadir}/%{name}/resources
+%{_gamesdatadir}/%{name}/resources
 
 %changelog
 * Fri Feb 22 2013 pcpa <paulo.cesar.pereira.de.andrade@gmail.com> - 0.5-1
