@@ -18,7 +18,7 @@ BuildRequires:	cmake
 BuildRequires:	desktop-file-utils
 BuildRequires:	freetype-devel
 BuildRequires:	lua-devel
-BuildRequires:	mesa-libGL-devel
+BuildRequires:	GL-devel
 BuildRequires:	SDL-devel
 BuildRequires:	SDL_mixer-devel
 BuildRequires:	swig
