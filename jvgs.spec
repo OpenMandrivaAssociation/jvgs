@@ -17,8 +17,9 @@ Source2:	%{name}.png
 BuildRequires:	cmake
 BuildRequires:	desktop-file-utils
 BuildRequires:	freetype-devel
-BuildRequires:	lua-devel
 BuildRequires:	GL-devel
+BuildRequires:	lua-devel
+BuildRequires:	pkgconfig(glu)
 BuildRequires:	SDL-devel
 BuildRequires:	SDL_mixer-devel
 BuildRequires:	swig
