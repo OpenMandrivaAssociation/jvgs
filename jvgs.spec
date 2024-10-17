@@ -7,7 +7,7 @@ Release:	1%{?dist}
 Summary:	Minimalistic platform game loosely based on xkcd webcomic
 License:	WTFPL
 Group:		Games/Arcade
-URL:		http://jvgs.sourceforge.net/
+URL:		https://jvgs.sourceforge.net/
 Source0:	http://downloads.sourceforge.net/%{name}/%{name}-%{version}-src.tar.gz
 
 # Extracted from https://aur.archlinux.org/packages/jv/jvgs/jvgs.tar.gz
